@@ -1,47 +1,48 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>VeLauz</title>
-    <!-- ionic css -->
-    <link href="lib/css/ionic.css" rel="stylesheet">
-    <!-- app css -->
-    <link href="css/app.css" rel="stylesheet">
+<html ng-app="VeLauz" ng-controller="mapMainController">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>VeLauz</title>
+	<!-- ionic css -->
+	<link href="library/css/ionic.css" rel="stylesheet">
+	<!-- app css -->
+	<link href="css/app.css" rel="stylesheet">
 	<!-- OpenLayers -->
 	<link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
-  </head>
+</head>
 
   <!-- 
     'starter' is the name of this angular module (js/app.js)
-  -->
-	<body ng-app="VeLauz" ng-controller="VelauzControl">
-
+-->
+<body ng-controller="ionicController">
+	<ion-side-menus>
 		<!-- Center content -->
-		<div id="content" class="pane">
+		<ion-pane ion-side-menu-content>
 			<header class="bar bar-header bar-assertive">
-				<button class="button icon ion-navicon ng-click="toggleMenu()""></button>
-				<h1 class="title">VeLauz</h1>
+				<button class="button icon ion-navicon" ng-click="toggleMenu()"></button>
+				<h1 class="title">VeLauz2</h1>
 				<button class="button ion-alert-circled"></button>
-		  	</header>
-		  	<div id="map"></div>
-		</div>
+			</header>
+		</ion-pane>
 
-		
+
 		<!-- Left menu -->
-		<div id="menu-left" class="menu menu-left">
-		  <header class="bar bar-header bar-dark">
-		    <h1 class="title">Menu</h1>
-		  </header>
-		</div>
+		<ion-side-menu side="left">
+			<header class="bar bar-header bar-dark">
+				<h1 class="title">Menu</h1>
+			</header>
+		</ion-side-menu>
+	</ion-side-menus>
 
-		
-		<!-- ionic/angularjs scripts -->
-		<script src="lib/js/ionic.bundle.js"></script>
-		<!-- OpenLayers -->
-		<script src="http://ol3js.org/en/master/build/ol.js" type="text/javascript"></script>
-		<!-- App's script -->
-		<script src="js/app.js"></script>
-		<script src="js/map.js"></script>
-	</body>
+
+<!-- Ionic/Angularjs scripts -->
+<script src="library/js/ionic.bundle.js"></script>
+<!-- OpenLayers -->
+<script src="http://ol3js.org/en/master/build/ol.js" type="text/javascript"></script>
+
+<!-- App's script -->
+<script src="app/app.js"></script>
+<script src="app/controllers/controllers.js"></script>
+</body>
 </html>

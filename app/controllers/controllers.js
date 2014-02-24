@@ -1,6 +1,5 @@
 var module = angular.module('map_main_controller',[]);
 
-document.addEventListener("deviceready", createMap, false); //to work with PhoneGap (hopefully)
 function createMap() {
 
 	var map = new ol.Map({
@@ -19,6 +18,9 @@ function createMap() {
 
 	return map;
 };
+
+document.addEventListener("deviceready", createMap, false); //to work with PhoneGap (hopefully)
+
 
 //The application main controller
 module.controller('mapMainController', ['$scope', function($scope) {

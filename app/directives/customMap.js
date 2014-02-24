@@ -1,7 +1,5 @@
  
-var module = angular.module('customMapDirective', []);
- 
-module.directive('customMap', function() {
+app.directive('customMap', function() {
   return {
           restrict: 'A',   
           scope: {

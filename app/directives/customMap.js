@@ -11,8 +11,6 @@ module.directive('customMap', function() {
       //(ici tu plantes tous ce dont tu as besoin...)
       var map = scope.map;
 
-      var view = map.getView();
-
       map.setTarget(element[0]); //donnes un target à ta map
     }
   };    

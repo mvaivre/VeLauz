@@ -1,6 +1,7 @@
 var module = angular.module('map_main_controller',[]);
 
 function createMap() {
+
 	var map = new ol.Map({
 	    layers: [
 	      new ol.layer.Tile({
@@ -9,8 +10,8 @@ function createMap() {
 	    ],
 	    renderer: 'canvas',
 	    view: new ol.View2D({
-	      center: [0, 0],
-	      zoom: 2
+	      center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
+	      zoom: 7
 	    }),
 	    ol3Logo: false
 	});

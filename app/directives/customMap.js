@@ -1,9 +1,9 @@
 'use strict';
 
-var module = angular.module('custom_map_directive', []); 
+var VeLauz = angular.module('custom_map_directive', []); 
 
 
-module.directive('customMap', function() {
+VeLauz.directive('customMap', function() {
   return {
     restrict: 'A',   
     scope: {

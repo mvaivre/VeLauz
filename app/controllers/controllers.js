@@ -1,10 +1,10 @@
 'use strict';
 
-var module = angular.module('map_main_controller',[]);
+var VeLauz = angular.module('map_main_controller',[]);
 
 
 //The application main controller
-module.controller('mapMainController', ['$scope', function($scope) {
+VeLauz.controller('mapMainController', ['$scope', function($scope) {
 // The main controller creates the OpenLayers map object. The map object
 // is central, as most directives/components need a reference to it.
 var map = new ol.Map({

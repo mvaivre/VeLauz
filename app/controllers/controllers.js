@@ -2,13 +2,6 @@ var module = angular.module('map_main_controller',['ionic']);
 
 
 //document.addEventListener("deviceready", createMap, false); //to work with PhoneGap (hopefully)
-
-
-//The application main controller
-module.controller('mapMainController', ['$scope', function($scope, Plateform) {
-// The main controller creates the OpenLayers map object. The map object
-// is central, as most directives/components need a reference to it.
-
 	function createMap() {
 		
 		var map = new ol.Map({
@@ -27,6 +20,11 @@ module.controller('mapMainController', ['$scope', function($scope, Plateform) {
 
 		return map;
 	};
+
+//The application main controller
+module.controller('mapMainController', ['$scope', function($scope, Plateform) {
+// The main controller creates the OpenLayers map object. The map object
+// is central, as most directives/components need a reference to it.
 
 		$scope.map = createMap();
 }]);

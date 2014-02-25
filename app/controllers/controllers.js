@@ -1,4 +1,4 @@
-var module = angular.module('map_main_controller',[]);
+var module = angular.module('map_main_controller',['phoneGap']);
 
 
 //document.addEventListener("deviceready", createMap, false); //to work with PhoneGap (hopefully)
@@ -22,11 +22,11 @@ var module = angular.module('map_main_controller',[]);
 	};
 
 //The application main controller
-module.controller('mapMainController', ['$scope', function($scope, Plateform) {
+module.controller('mapMainController', ['$scope', function($scope) {
 // The main controller creates the OpenLayers map object. The map object
 // is central, as most directives/components need a reference to it.
 	
-		$scope.map = document.addEventListener('deviceready', createMap, false);
+		$scope.map = createMap();
 }]);
 
 

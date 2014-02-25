@@ -3,11 +3,11 @@
 /* Services */
 
 // Simple value service.
-module = angular.module('services', []).
+angular.module('services', []).
   value('version', '0.1');
 
 // phonegap ready service - listens to deviceready
-module.factory('phonegapReady', function() {
+VeLauz.factory('phonegapReady', function() {
     return function (fn) {
         var queue = [];
         var impl = function () {
@@ -27,7 +27,7 @@ module.factory('phonegapReady', function() {
     };
 });
 
-module.factory('geolocation', function ($rootScope, phonegapReady) {
+VeLauz.factory('geolocation', function ($rootScope, phonegapReady) {
   return {
     getCurrentPosition: function (onSuccess, onError, options) {
         navigator.geolocation.getCurrentPosition(function () {
@@ -54,7 +54,7 @@ module.factory('geolocation', function ($rootScope, phonegapReady) {
     };
 });
 
-module.factory('accelerometer', function ($rootScope, phonegapReady) {
+VeLauz.factory('accelerometer', function ($rootScope, phonegapReady) {
     return {
         getCurrentAcceleration: phonegapReady(function (onSuccess, onError) {
             navigator.accelerometer.getCurrentAcceleration(function () {
@@ -80,7 +80,7 @@ module.factory('accelerometer', function ($rootScope, phonegapReady) {
     };
 });
 
-module.factory('notification', function ($rootScope, phonegapReady) {
+VeLauz.factory('notification', function ($rootScope, phonegapReady) {
     return {
         alert: phonegapReady(function (message, alertCallback, title, buttonName) {
             navigator.notification.alert(message, function () {

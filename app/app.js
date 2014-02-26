@@ -6,7 +6,7 @@ var VeLauz = angular.module('VeLauz', [
 	'ionic',
 	'map_main_controller',
 	'services',
-	'custom_map_directive'
+	'custom_map_directive',
 	]);
 
 //VeLauz.config(function ($compileProvider){

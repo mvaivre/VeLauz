@@ -24,26 +24,16 @@ var map = new ol.Map({
 
 $scope.map = map;
 
-//Geolocalisation
+//--------------- Geolocation ---------------//
 
-$scope.getLocation = function () {
-	function onSuccess(position) {
-		alert('Latitude: '              + position.coords.latitude          + '\n' +
-			'Longitude: '             + position.coords.longitude         + '\n' +
-			'Altitude: '              + position.coords.altitude          + '\n' +
-			'Accuracy: '              + position.coords.accuracy          + '\n' +
-			'Altitude Accuracy: '     + position.coords.altitudeAccuracy  + '\n' +
-			'Heading: '               + position.coords.heading           + '\n' +
-			'Speed: '                 + position.coords.speed             + '\n' +
-			'Timestamp: '             + position.timestamp                + '\n');
-	};
 
-	function onError() {
-		alert('Impossible de déterminer ta position !');
-	};
-
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
-};
+var geolocation = new ol.Geolocation();
+// take the projection to use from the map's view
+geolocation.bindTo('projection', map.getView());
+// listen to changes in position
+geolocation.on('change:position', function(evt) {
+  window.console.log(geolocation.getPosition());
+});
 
 });
 

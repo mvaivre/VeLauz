@@ -1,8 +1,6 @@
- var module = angular.module('geolocation_directive', [
-    'ga_permalink'
-  ]);
+ var VeLauz = angular.module('geolocation_directive', []);
 
-  module.directive('geolocation', function($parse, $window, gaPermalink) {
+  VeLauz.directive('geolocation', function($parse, $window, gaPermalink) {
     return {
       restrict: 'A',
       scope: {

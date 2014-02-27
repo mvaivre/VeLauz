@@ -1,13 +1,13 @@
 'use strict';
 
-var VeLauz = angular.module('custom_map_directive', []); 
+var VeLauz = angular.module('map_directive', []); 
 
 
 VeLauz.directive('customMap', function(phonegapReady) {
   return {
     restrict: 'A',   
     scope: {
-      map: '=customMapMap' 
+      map: '=' 
     },
     link: function(scope, element, attrs) { 
       var map = scope.map;
@@ -15,7 +15,6 @@ VeLauz.directive('customMap', function(phonegapReady) {
 
       map.setTarget(element[0]); //donnes un target à ta map
 
-      //----------------- Geolocation here or in controller? -----------------//
 
     }
   }   

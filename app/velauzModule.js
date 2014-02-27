@@ -7,6 +7,7 @@ var VeLauz = angular.module('VeLauz', [
 	'main_controller',
 	'services',
 	'map_directive',
+	'geolocation_directive'
 	]);
 
 

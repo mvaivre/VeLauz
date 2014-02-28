@@ -27,9 +27,15 @@ VeLauz.controller('mainController', function ($scope, phonegapReady) {
 	$scope.map = map;
 
 
-	// Defines the animations provided by the Ionic framework
+	// ----- Defines the animations provided by the Ionic framework ----- //
 	$scope.toggleMenu = function() {
 		$scope.sideMenuController.toggleLeft();
 	};
+
+	// ----- Define the list on the left ----- //
+	$scope.items = ['Carte', 'Mes trajets', 'Problèmes signalés', 'Statistiques','Evènements PRO VELO', 'Contact', 'Déconnexion'];
+
+
+
 
 });

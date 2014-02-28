@@ -6,7 +6,7 @@
 	<meta name="mobile-web-app-capable" content="yes"> 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<title>VeLauz</title>
-	<!-- ionic css -->
+	<!-- ionic -->
 	<link href="lib/css/ionic.css" rel="stylesheet">
 	<!-- Less CSS (compile later for production) -->
 	<link href="style/style.less" rel="stylesheet/less">
@@ -19,10 +19,10 @@
 	<ion-side-menus>
 		<!-- Center content -->
 		<ion-pane ion-side-menu-content drag-content="false">
-			<header class="bar bar-header bar-assertive">
+			<header class="bar bar-header bar-assertive" ng-controller="signalController">
 				<button class="button icon ion-navicon" ng-click="toggleMenu()"></button>
 				<h1 class="title">VeLauz</h1>
-				<button class="button icon ion-alert-circled"></button>
+				<button class="button icon ion-alert-circled" ng-click="openModal()"></button>
 			</header>
 			<div id="map" class="map" custom-map map="map">
 				<div geolocation geolocation-map="map"></div>
@@ -35,10 +35,13 @@
 			<header class="bar bar-header bar-dark">
 				<h1 class="title">Menu</h1>
 			</header>
-			<ion-list>
-			  <ion-item ng-repeat="item in items" item="item">
-			  </ion-item>
-			</ion-list>
+			<ion-content class="has-header" has-bouncing="true">
+				<ion-list id="leftList">
+				  	<ion-item ng-repeat="item in items" item="item">
+				  		{{item}}
+				  	</ion-item>	
+				</ion-list>
+			</ion-content> 
 		</ion-side-menu>
 	</ion-side-menus>
 
@@ -47,12 +50,12 @@
 <!-- OpenLayers -->
 <script src="lib/js/ol.js" type="text/javascript"></script>
 
-<!-- Ionic/JS scripts -->
-<script src="lib/js/ionic.bundle.js"></script>
+<!-- Ionic and Jquery -->
+<script src="lib/js/ionic.bundle.min.js"></script>
 <script src="lib/js/jquery-2.1.0.min.js"></script>
 
-<!-- Module -->
-<script src="app/velauzModule.js"></script>
+<!-- Module, routes, config -->
+<script src="app/app.js"></script>
 
 <!-- Directives -->
 <script src="app/directives/mapDirective.js"></script>
@@ -60,6 +63,7 @@
 
 <!-- Controllers -->
 <script src="app/controllers/mainController.js"></script>
+<script src="app/controllers/signalController.js"></script>
 
 <!-- Services -->
 <script src="app/factories/angular-phoneGap.js"></script>

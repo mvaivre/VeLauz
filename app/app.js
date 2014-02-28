@@ -7,14 +7,31 @@ var VeLauz = angular.module('VeLauz', [
 	'main_controller',
 	'services',
 	'map_directive',
+	'geolocation_directive',
+  'signal_controller'
 	]);
 
 
-//This controller defines the animations provided by the Ionic framework
-VeLauz.controller('ionicController', function($scope) {
+/*
+VeLauz.config(function($stateProvider, $urlRouterProvider) {
 
-	$scope.toggleMenu = function() {
-		$scope.sideMenuController.toggleLeft();
-	};
+  $stateProvider
+    .state('home', {
+      url: "/home",
+      templateUrl: "home.html",
+      controller: 'HomeCtrl'
+    })
+    .state('about', {
+      url: "/about",
+      templateUrl: "about.html",
+      controller: 'AboutCtrl'
+    })
+    .state('contact', {
+      url: "/contact",
+      templateUrl: "contact.html"
+    })
 
-});
+    // if none of the above are matched, go to this one
+    $urlRouterProvider.otherwise("/home");
+})
+*/

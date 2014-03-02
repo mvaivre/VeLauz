@@ -1,6 +1,6 @@
- var VeLauz = angular.module('geolocation_directive', []);
+angular.module('geolocation_directive', [])
 
- VeLauz.directive('geolocation', function(phonegapReady) {
+.directive('geolocation', function(phonegapReady) {
   return {
     restrict: 'A',
     templateUrl: 'app/partials/geolocation.html',

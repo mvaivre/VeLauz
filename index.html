@@ -16,17 +16,13 @@
 </head>
 
 <body>
+
+<div ng-controller="menuController">
 	<ion-side-menus>
 		<!-- Center content -->
 		<ion-pane ion-side-menu-content drag-content="false">
-			<header class="bar bar-header bar-assertive" ng-controller="signalController">
-				<button class="button icon ion-navicon" ng-click="toggleMenu()"></button>
-				<h1 class="title">VeLauz</h1>
-				<button class="button icon ion-alert-circled" ng-click="openModal()"></button>
-			</header>
-			<div id="map" class="map" custom-map map="map">
-				<div geolocation geolocation-map="map"></div>
-			</div>
+			<ion-nav-bar type="bar-assertive"></ion-nav-bar>
+				<ion-nav-view></ion-nav-view>
 		</ion-pane>
 
 
@@ -36,15 +32,16 @@
 				<h1 class="title">Menu</h1>
 			</header>
 			<ion-content class="has-header" has-bouncing="true">
-				<ion-list id="leftList">
-				  	<ion-item ng-repeat="item in items" item="item">
-				  		{{item}}
+				<ion-list>
+				  	<ion-item ng-click="goTo(item.link)" class="item item-icon-left" ng-repeat="item in list">
+				  		<i ng-class="item.iconClass"></i>
+				  		{{item.text}}
 				  	</ion-item>	
 				</ion-list>
 			</ion-content> 
 		</ion-side-menu>
 	</ion-side-menus>
-
+</div>
 
 
 <!-- OpenLayers -->
@@ -62,11 +59,12 @@
 <script src="app/directives/geolocationDirective.js"></script>
 
 <!-- Controllers -->
-<script src="app/controllers/mainController.js"></script>
+<script src="app/controllers/mainControllers.js"></script>
 <script src="app/controllers/signalController.js"></script>
 
 <!-- Services -->
-<script src="app/factories/angular-phoneGap.js"></script>
+<script src="app/services/menuService.js"></script>
+<script src="app/services/angular-phoneGap.js"></script>
 
 
 </body>

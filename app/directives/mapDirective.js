@@ -1,9 +1,9 @@
 'use strict';
 
-var VeLauz = angular.module('map_directive', []); 
+angular.module('map_directive', [])
 
 
-VeLauz.directive('customMap', function(phonegapReady) {
+.directive('customMap', function(phonegapReady) {
   return {
     restrict: 'A',   
     scope: {

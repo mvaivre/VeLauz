@@ -4,34 +4,37 @@
 //Global module, containing the other modules
 var VeLauz = angular.module('VeLauz', [
 	'ionic',
-	'main_controller',
+	'main_controllers',
+  'signal_controller',
+  'menu_service',
 	'services',
 	'map_directive',
-	'geolocation_directive',
-  'signal_controller'
-	]);
+	'geolocation_directive'
+	])
 
+.config(function ($compileProvider) {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+})
 
-/*
-VeLauz.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('home', {
-      url: "/home",
-      templateUrl: "home.html",
-      controller: 'HomeCtrl'
+    .state('map', {
+      url: "/map",
+      templateUrl: "app/partials/map.html",
+      controller: 'mapController'
     })
-    .state('about', {
-      url: "/about",
-      templateUrl: "about.html",
-      controller: 'AboutCtrl'
+    .state('tracks', {
+      url: "/tracks",
+      templateUrl: "app/partials/tracks.html",
+      controller: 'tracksController'
     })
-    .state('contact', {
-      url: "/contact",
-      templateUrl: "contact.html"
+    .state('problems', {
+      url: "/problems",
+      templateUrl: "userProblems.html",
+      controller: 'problemsController'
     })
 
     // if none of the above are matched, go to this one
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/map");
 })
-*/

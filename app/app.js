@@ -9,7 +9,8 @@ var VeLauz = angular.module('VeLauz', [
   'menu_service',
 	'services',
 	'map_directive',
-	'geolocation_directive'
+	'geolocation_directive',
+  'record_directive'
 	])
 
 .config(function ($compileProvider) {

@@ -48,9 +48,7 @@ angular.module('geolocation_directive', [])
           map.beforeRender(pan);
           view.setCenter(dest);
         }
-
       }
-
        //Update marker when the position changes (NECESSARY ? TEST WITHOUT)
       geolocation.on('change:position', function(evt) {
         marker.bindTo('position', geolocation);

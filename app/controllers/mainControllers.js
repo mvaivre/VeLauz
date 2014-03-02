@@ -53,14 +53,14 @@ angular.module('main_controllers',[])
 	$scope.navTitle = "Carte Velauz";
 
 	$scope.leftButtons = [{
-		type: 'button-icon ion-navicon',
+		type: 'button icon ion-navicon',
 		tap: function(e) {
 			$scope.sideMenuController.toggleLeft();
 		}
 	}];
 
 	$scope.rightButtons = [{
-		type: 'button-icon ion-alert-circled',
+		type: 'button icon ion-alert-circled',
 		tap: function(e) {
 			openModal();
 		}
@@ -72,7 +72,7 @@ angular.module('main_controllers',[])
 	$scope.navTitle = "Mes parcours";
 
 	$scope.leftButtons = [{
-		type: 'button-icon ion-navicon',
+		type: 'button icon ion-navicon',
 		tap: function(e) {
 			$scope.sideMenuController.toggleLeft();
 		}

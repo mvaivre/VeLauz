@@ -6,17 +6,33 @@
 	height: 100%;
 	padding-top: 44px; //Header
 
-	.locButton{
+	// Localisation button
+	.locationButton{
 		position: absolute;
 		bottom: 5px;
 		right: 5px;
 		z-index: 1;
 	}
+
+	.recordButton{
+		position: absolute;
+		color: @red;
+		font-size: 90px;
+		bottom: 5px;
+		left:auto;
+		right: 45%;
+		z-index: 1;
+
+		text-shadow: 0 0 7px rgba(0,0,0, 0.5);
+	}
+
 }
 
 
-//Geolocalisation
+//Location pin
 i.ion-location {
-  font-size: 30px;
-  color: @red;
+	font-size: 30px;
+	color: @red;
 }
+
+

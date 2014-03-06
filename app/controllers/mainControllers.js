@@ -11,7 +11,9 @@ angular.module('main_controllers',[])
 	var map = new ol.Map({
 		layers: [
 		new ol.layer.Tile({
-			source: new ol.source.OSM()
+			source: new ol.source.OSM({
+				url: 'http://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png' //PhoneGap support
+			})
 		})
 		],
 		renderer: 'canvas',
@@ -50,7 +52,7 @@ angular.module('main_controllers',[])
 
 
 .controller('mapController', function ($scope) {
-	$scope.navTitle = "Carte Velauz";
+	$scope.navTitle = "Vélauz";
 
 	$scope.leftButtons = [{
 		type: 'button icon ion-navicon',

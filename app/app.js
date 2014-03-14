@@ -7,15 +7,21 @@ var VeLauz = angular.module('VeLauz', [
 	'main_controllers',
   'signal_controller',
   'menu_service',
-	'services',
+	'urlutils_service',
 	'map_directive',
 	'geolocation_directive',
   'record_directive'
 	])
 
 .config(function ($compileProvider) {
-    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
+
+//Define constants
+
+.constant('globalOptions', {
+  serviceUrl: : '/', //ToDo
+});
 
 .config(function($stateProvider, $urlRouterProvider) {
 

@@ -16,7 +16,7 @@ angular.module('main_controllers',[])
 			})
 		})
 		],
-		renderer: 'webgl',
+		renderer: 'canvas',
 		view: new ol.View2D({
 			center: ol.proj.transform([6.634, 46.519], 'EPSG:4326', 'EPSG:3857'),
 			zoom: 12

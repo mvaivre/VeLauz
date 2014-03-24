@@ -20,8 +20,8 @@ var VeLauz = angular.module('VeLauz', [
 //Define constants
 
 .constant('globalOptions', {
-  serviceUrl: : '/', //ToDo
-});
+  serviceUrl:  '/' //ToDo
+})
 
 .config(function($stateProvider, $urlRouterProvider) {
 

@@ -1,4 +1,4 @@
-angular.module('urlutils_service', []);
+angular.module('urlutils_service', [])
 
 .provider('urlUtils', function() {
 
@@ -91,9 +91,6 @@ angular.module('urlutils_service', []);
           }
         };
       };
-
-      return new UrlUtils();
-    };
-  });
-
-})();
+    return new UrlUtils();
+  };
+});

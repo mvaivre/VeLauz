@@ -1,6 +1,6 @@
-VeLauz = angular.module('signal_controller', []);
+angular.module('signal_controller', [])
 
-VeLauz.controller('signalController', function($scope, $ionicModal) {
+.controller('signalController', function($scope, $ionicModal) {
 
   // Load the modal from the given template URL
   $ionicModal.fromTemplateUrl('app/partials/signalProblem.html', function(modal) {

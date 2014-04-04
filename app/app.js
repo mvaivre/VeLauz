@@ -20,7 +20,7 @@ var VeLauz = angular.module('VeLauz', [
 //Define constants
 
 .constant('globalOptions', {
-  serviceUrl:  '/' //ToDo
+  serviceUrl:  location.origin //ToDo
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -29,19 +29,28 @@ var VeLauz = angular.module('VeLauz', [
     .state('map', {
       url: "/map",
       templateUrl: "app/partials/map.html",
-      controller: 'mapController'
+      controller: 'mapController',
+      authenticate: true
     })
     .state('tracks', {
       url: "/tracks",
       templateUrl: "app/partials/tracks.html",
-      controller: 'tracksController'
+      controller: 'tracksController',
+      authenticate: true
     })
     .state('problems', {
       url: "/problems",
       templateUrl: "userProblems.html",
-      controller: 'problemsController'
+      controller: 'problemsController',
+      authenticate: true
     })
+    .state("login", {
+      url: "/login",
+      templateUrl: "partials/login.html",
+      controller: "loginController",
+      authenticate: false
+    });
 
     // if none of the above are matched, go to this one
-    $urlRouterProvider.otherwise("/map");
+    $urlRouterProvider.otherwise("/login");
 })

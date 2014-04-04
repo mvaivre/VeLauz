@@ -5,6 +5,7 @@
 var VeLauz = angular.module('VeLauz', [
 	'ionic',
 	'main_controllers',
+  'login_controller',
   'signal_controller',
   'menu_service',
 	'urlutils_service',
@@ -40,17 +41,17 @@ var VeLauz = angular.module('VeLauz', [
     })
     .state('problems', {
       url: "/problems",
-      templateUrl: "userProblems.html",
+      templateUrl: "app/partials/userProblems.html",
       controller: 'problemsController',
       authenticate: true
     })
     .state("login", {
       url: "/login",
-      templateUrl: "partials/login.html",
+      templateUrl: "app/partials/login.html",
       controller: "loginController",
       authenticate: false
     });
 
     // if none of the above are matched, go to this one
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/map");
 })

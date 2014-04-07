@@ -1,4 +1,4 @@
-angular.module('signal_controller', [])
+angular.module('signal_controller', ['ionic'])
 
 .controller('signalController', function($scope, $ionicModal) {
 
@@ -6,17 +6,15 @@ angular.module('signal_controller', [])
   $ionicModal.fromTemplateUrl('app/partials/signalProblem.html', function(modal) {
     $scope.modal = modal;
   }, {
-    // Use our scope for the scope of the modal to keep it simple
     scope: $scope,
-    // The animation we want to use for the modal entrance
     animation: 'slide-in-up'
   });
 
 
-  $scope.openModal = function() {
+  $scope.openSignal = function() {
     $scope.modal.show();
   };
-  $scope.closeModal = function() {
+  $scope.closeSignal = function() {
     $scope.modal.hide();
   };
 

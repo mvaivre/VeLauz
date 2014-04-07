@@ -1,6 +1,33 @@
 // http://jpenny.im/pyramid_auth_angular.html
 
-angular.module('login', []).config(['$httpProvider', function($httpProvider){
+
+angular.module('login_controller', [])
+
+.controller('loginController', function($scope, $http, $rootScope) {
+
+	$scope.dta = {login: '', password: '', errorMessage: ''};
+	$scope.login = function() {
+		var params =  {login: $scope.dta.login,
+			password: $scope.dta.password};
+		$http({method: 'POST', url: '/login', params: params})
+		.success(function(data, status, error, config) {
+			if (data === 'OK') {
+				$rootScope.$broadcast('event:loginSuccess');
+			} else {
+				$scope.dta.errorMessage = 'Login ou mot de passe invalide';
+			}
+		})
+		.error(function(data, status, error, config) {
+			$scope.dta.errorMessage = 'Problème de connexion, envoyez un mail à : ...';
+			$rootScope.$broadcast('event:loginRequired');
+		});
+	};
+
+});
+
+/*
+
+.config(['$httpProvider', function($httpProvider){
   $httpProvider.responseInterceptors.push([
     '$rootScope', '$q',
     function(scope, $q) {
@@ -70,3 +97,5 @@ function LoginController($scope, $http, $modal, $rootScope) {
   };
 }
 LoginController.inject = ['$scope', '$http', '$modal', '$rootScope'];
+
+*/

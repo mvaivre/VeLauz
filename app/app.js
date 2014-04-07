@@ -21,7 +21,7 @@ var VeLauz = angular.module('VeLauz', [
 //Define constants
 
 .constant('globalOptions', {
-  serviceUrl:  location.origin //ToDo
+  serviceUrl:  location.origin 
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -53,5 +53,5 @@ var VeLauz = angular.module('VeLauz', [
     });
 
     // if none of the above are matched, go to this one
-    $urlRouterProvider.otherwise("/map");
+    $urlRouterProvider.otherwise("/login");
 })

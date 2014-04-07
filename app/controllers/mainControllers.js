@@ -1,7 +1,7 @@
 'use strict';
 
 // Here are the controllers defining navigation behaviour, animations... and the map !
-angular.module('main_controllers',[])
+angular.module('main_controllers',['ionic'])
 
 
 .controller('mainController', function ($scope, phonegapReady) {
@@ -51,8 +51,8 @@ angular.module('main_controllers',[])
 
 
 
-.controller('mapController', function ($scope) {
-	$scope.navTitle = "Vélauz";
+.controller('mapController', function ($scope, $ionicModal) {
+	$scope.navTitle = "VéLauz";
 
 	$scope.leftButtons = [{
 		type: 'button icon ion-navicon',
@@ -64,9 +64,30 @@ angular.module('main_controllers',[])
 	$scope.rightButtons = [{
 		type: 'button icon ion-alert-circled',
 		tap: function(e) {
-			openModal();
+			$scope.openSignal();
 		}
 	}];
+
+	// Load the modal to add a new problem
+	$ionicModal.fromTemplateUrl('app/partials/signalProblem.html', function(modal) {
+	    $scope.modal = modal;
+	}, {
+	    scope: $scope,
+	    animation: 'slide-in-up'
+	});
+
+
+	$scope.openSignal = function() {
+	    $scope.modal.show();
+	};
+	$scope.closeSignal = function() {
+	    $scope.modal.hide();
+	};
+
+	//Be sure to cleanup the modal
+	$scope.$on('$destroy', function() {
+	    $scope.modal.remove();
+	});
 })
 
 

@@ -5,13 +5,14 @@
 var VeLauz = angular.module('VeLauz', [
 	'ionic',
 	'main_controllers',
-  'login_controller',
+  'login',
   'signal_controller',
   'menu_service',
 	'urlutils_service',
 	'map_directive',
 	'geolocation_directive',
-  'record_directive'
+  'record_directive',
+  'ui.router'
 	])
 
 .config(function ($compileProvider) {
@@ -23,6 +24,8 @@ var VeLauz = angular.module('VeLauz', [
 .constant('globalOptions', {
   serviceUrl:  location.origin 
 })
+
+//https://github.com/fnakstad/angular-client-side-auth/blob/master/client/js/app.js
 
 .config(function($stateProvider, $urlRouterProvider) {
 

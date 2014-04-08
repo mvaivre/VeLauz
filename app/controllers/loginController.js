@@ -1,7 +1,7 @@
 // http://jpenny.im/pyramid_auth_angular.html
 
 
-angular.module('login_controller', [])
+angular.module('login', [])
 
 .controller('loginController', function($scope, $http, $rootScope) {
 

@@ -11,6 +11,7 @@ angular.module('geolocation_directive', [])
       var map = scope.map;
       var view = map.getView(); // Actual view
 
+
       var geolocation = new ol.Geolocation({
         trackingOptions: {
           maximumAge: 10000,
@@ -19,6 +20,8 @@ angular.module('geolocation_directive', [])
         }
       });
       geolocation.bindTo('projection', view);
+
+      geolocation.setTracking(true); // Activate geolocation, to signal a problem quickly
 
       // ------- Create marker ------- // 
       var marker = new ol.Overlay({
@@ -33,12 +36,9 @@ angular.module('geolocation_directive', [])
 
       //-----Activate location on click, and center view on user ----- //
       scope.locate = function() {
+      var loc = geolocation.getPosition();
 
-        geolocation.setTracking(true); // Activate geolocation
-
-        var dest = geolocation.getPosition();
-
-        if (dest) {
+        if (loc) { // Ne fonctionne pas après changement catégorie ?
           var source = view.getCenter(); 
           var pan = ol.animation.pan({
             duration: 200,
@@ -46,7 +46,7 @@ angular.module('geolocation_directive', [])
           });
 
           map.beforeRender(pan);
-          view.setCenter(dest);
+          view.setCenter(loc);
         }
       }
        //Update marker when the position changes (NECESSARY ? TEST WITHOUT)

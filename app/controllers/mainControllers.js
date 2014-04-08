@@ -27,80 +27,25 @@ angular.module('main_controllers',['ionic'])
 
 	$scope.map = map;
 
-
-	// ----- Defines the animations provided by the Ionic framework ----- //
-	/*$scope.toggleMenu = function() {
-		$scope.sideMenuController.toggleLeft();
-	};
-*/
-	// ----- Define the list on the left ----- //
-	//$scope.items = ['Carte', 'Mes trajets', 'Problèmes signalés', 'Statistiques','Evènements PRO VELO', 'Contact', 'Déconnexion'];
-
 })
 
-.controller('menuController', function ($scope, $location, menuService) {
+.controller('menuController', function ($scope, $location, $ionicSideMenuDelegate, menuService) {
     // "menuService" is a service returning mock data (services.js)
     $scope.list = menuService.all();
 
+    $scope.toggleLeft = function() {
+    	$ionicSideMenuDelegate.toggleLeft();
+  	};
+
     $scope.goTo = function(page) {
     	console.log('Going to ' + page);
-    	$scope.sideMenuController.toggleLeft();
-    	$location.url('/' + page);
+    	$ionicSideMenuDelegate.toggleLeft();
+    	$location.url('/' + page + '/');
     };
 })
 
 
-
-.controller('mapController', function ($scope, $ionicModal) {
-	$scope.navTitle = "VéLauz";
-
-	$scope.leftButtons = [{
-		type: 'button icon ion-navicon',
-		tap: function(e) {
-			$scope.sideMenuController.toggleLeft();
-		}
-	}];
-
-	$scope.rightButtons = [{
-		type: 'button icon ion-alert-circled',
-		tap: function(e) {
-			$scope.openSignal();
-		}
-	}];
-
-	// Load the modal to add a new problem
-	$ionicModal.fromTemplateUrl('app/partials/signalProblem.html', function(modal) {
-	    $scope.modal = modal;
-	}, {
-	    scope: $scope,
-	    animation: 'slide-in-up'
-	});
-
-
-	$scope.openSignal = function() {
-	    $scope.modal.show();
-	};
-	$scope.closeSignal = function() {
-	    $scope.modal.hide();
-	};
-
-	//Be sure to cleanup the modal
-	$scope.$on('$destroy', function() {
-	    $scope.modal.remove();
-	});
-})
-
-
 .controller('tracksController', function ($scope) {
-	$scope.navTitle = "Mes parcours";
+	
 
-	$scope.leftButtons = [{
-		type: 'button icon ion-navicon',
-		tap: function(e) {
-			$scope.sideMenuController.toggleLeft();
-		}
-	}];
-
-	$scope.rightButtons = [];
-
-})
+});

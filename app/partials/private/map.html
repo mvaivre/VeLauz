@@ -1,0 +1,17 @@
+<ion-header-bar align-title="left" class="bar-assertive">
+	<div class="buttons">
+		<button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
+	</div>
+	<h1 class="title">Carte</h1>
+	<div class="buttons">
+		<button class="button icon ion-alert-circled" ng-click="openSignal()"></button>
+	</div>
+</ion-header-bar>
+
+<div id="map" custom-map map="map"></div>
+
+<div class="bar bar-footer bar-dark">
+	<div geolocation geolocation-map="map"></div>
+	<div record-track record-map="map"></div>
+</div>
+

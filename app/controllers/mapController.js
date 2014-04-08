@@ -1,19 +1,25 @@
 angular.module('map_controller', ['ionic'])
 
-.controller('mapController', function ($scope) {
-	$scope.navTitle = "Vélauz";
+.controller('mapController', function ($scope, $ionicModal) {
 
-	$scope.leftButtons = [{
-		type: 'button icon ion-navicon',
-		tap: function(e) {
-			$scope.sideMenuController.toggleLeft();
-		}
-	}];
+	// Load the modal to add a new problem
+	$ionicModal.fromTemplateUrl('app/partials/signalProblem.html', function(modal) {
+	    $scope.modal = modal;
+	}, {
+	    scope: $scope,
+	    animation: 'slide-in-up'
+	});
 
-	$scope.rightButtons = [{
-		type: 'button icon ion-alert-circled',
-		tap: function(e) {
-			openSignal();
-		}
-	}];
-})
+
+	$scope.openSignal = function() {
+	    $scope.modal.show();
+	};
+	$scope.closeSignal = function() {
+	    $scope.modal.hide();
+	};
+
+	//Be sure to cleanup the modal
+	$scope.$on('$destroy', function() {
+	    $scope.modal.remove();
+	});
+});
